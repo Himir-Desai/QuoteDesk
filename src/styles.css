@@ -1,0 +1,2639 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Design tokens for the app chrome. The document itself deliberately does not
+   use these — it must stay byte-identical to the printed output. */
+:root {
+  --brand: #c0392b;
+  --brand-dark: #a5311f;
+  --brand-tint: #fdf0ee;
+  --brand-soft: #f3c7c0;
+  --ink: #1b2029;
+  --ink-2: #59616e;
+  --ink-3: #8b94a3;
+  --line: #e6e8ee;
+  --line-soft: #eef0f4;
+  --surface: #ffffff;
+  --canvas: #f5f6f9;
+  --radius: 10px;
+  /* Layered, low-opacity shadows read softer than a single dark one */
+  --shadow-sm: 0 1px 2px rgba(20, 26, 38, 0.05);
+  --shadow-md: 0 2px 4px rgba(20, 26, 38, 0.04), 0 8px 20px rgba(20, 26, 38, 0.07);
+  --shadow-lg: 0 18px 50px rgba(20, 26, 38, 0.18);
+}
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Slim, unobtrusive scrollbars */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7ccd6;
+  border: 3px solid var(--canvas);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aeb5c2;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- Home / Start screen ---------- */
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slim app bar. The old 42px gradient banner was mostly empty pixels; this
+   puts identity, search, and the primary action on one line instead. */
+.home-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: linear-gradient(135deg, #b8362a 0%, #8f2a1c 100%);
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(20, 26, 38, 0.16);
+}
+
+.home-header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  max-width: 1160px;
+  margin: 0 auto;
+  min-height: 58px;
+  padding: 8px 24px;
+}
+
+.home-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.home-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.home-brand-name {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  white-space: nowrap;
+}
+
+/* ---------- Filter toolbar (below the header, light) ---------- */
+.home-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-bottom: 24px;
+}
+
+.toolbar-field {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.toolbar-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--ink-3);
+}
+
+/* The company/party picker triggers reuse .sel-btn; a couple of tweaks only */
+.ms-trigger {
+  min-width: 150px;
+}
+
+.ms-trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* An empty (but required) company filter announces itself */
+.ms-trigger.ms-required {
+  border-color: var(--brand-soft);
+  color: var(--brand-dark);
+  background: var(--brand-tint);
+}
+
+.sel-year .sel-btn {
+  min-width: 120px;
+}
+
+/* Search moved down into the toolbar — light pill, grows to fill the row */
+.toolbar-search {
+  flex: 1 1 240px;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.toolbar-search:focus-within {
+  border-color: var(--brand-soft);
+  box-shadow: 0 0 0 3px var(--brand-tint);
+}
+
+.toolbar-search:has(input:disabled) {
+  opacity: 0.55;
+}
+
+.toolbar-search-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 1.9;
+  stroke-linecap: round;
+}
+
+.toolbar-search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--ink);
+}
+
+.toolbar-search input::placeholder {
+  color: var(--ink-3);
+}
+
+.toolbar-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.toolbar-search-clear {
+  border: none;
+  background: transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  padding: 5px 6px;
+  border-radius: 5px;
+}
+
+.toolbar-search-clear:hover {
+  color: var(--ink);
+  background: var(--line-soft);
+}
+
+/* Reset all filters back to defaults */
+.toolbar-reset {
+  flex-shrink: 0;
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.toolbar-reset:hover {
+  border-color: var(--brand-soft);
+  color: var(--brand-dark);
+  background: var(--brand-tint);
+}
+
+/* Primary action, promoted out of the old dashed card */
+.btn-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--brand-dark);
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(20, 26, 38, 0.12);
+  transition: transform 0.14s, box-shadow 0.14s, background 0.14s;
+}
+
+.btn-new:hover {
+  background: #fff8f6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(20, 26, 38, 0.18);
+}
+
+.btn-new:active {
+  transform: translateY(0);
+}
+
+.btn-new-plus {
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* ---------- Document-type tabs (inline, in the top bar) ---------- */
+/* A segmented control sitting next to the brand: switching type reads as
+   changing view, and it leaves the New button on the far right. */
+.home-tabs {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  margin-left: 6px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.home-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+
+.home-tab:hover {
+  color: #fff;
+}
+
+.home-tab.is-active {
+  background: #fff;
+  color: var(--brand-dark);
+}
+
+.home-tab-count {
+  min-width: 18px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+}
+
+.home-tab.is-active .home-tab-count {
+  background: var(--brand-tint);
+  color: var(--brand-dark);
+}
+
+.home-body {
+  flex: 1;
+  padding: 26px 48px 48px;
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.home-section {
+  margin-bottom: 36px;
+}
+
+.home-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--ink-3);
+  margin: 0 0 16px;
+}
+
+.home-section-scope {
+  color: var(--ink-3);
+  font-weight: 600;
+}
+
+/* ---------- Document list (one row per doc) ---------- */
+.doc-group {
+  margin-bottom: 22px;
+}
+
+.doc-group-head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 4px 8px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2px;
+}
+
+.doc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.doc-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(150px, auto) minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 10px 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.doc-row:hover {
+  background: var(--brand-tint);
+}
+
+/* The seller's colour as a left accent, echoing the tile stripe */
+.doc-row-stripe {
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--seller, var(--line));
+}
+
+/* Ref number is the primary column — bold and first */
+.doc-row-ref {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Name is the secondary, centered column */
+.doc-row-name {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-2);
+  text-align: center;
+}
+
+.doc-row-title {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Why a search result matched — small, muted, below the name */
+.doc-row-matches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 10px;
+  max-width: 100%;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--ink-3);
+}
+
+.doc-row-match {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.doc-row-match-label {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.doc-row-date {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  min-width: 84px;
+  text-align: right;
+}
+
+.doc-row-menu-wrap {
+  position: relative;
+  width: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.doc-row-menu {
+  border: none;
+  background: transparent;
+  color: var(--ink-3);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.12s, background 0.12s;
+}
+
+.doc-row:hover .doc-row-menu {
+  opacity: 1;
+}
+
+/* Imported/read-only rows: a small muted tag instead of the actions menu */
+.doc-row-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--line-soft);
+  border-radius: 4px;
+  padding: 2px 5px;
+  white-space: nowrap;
+}
+
+.doc-row-menu:hover {
+  background: rgba(20, 26, 38, 0.08);
+  color: var(--ink);
+}
+
+/* ---------- Filter gate (nothing shown until a company is picked) ---------- */
+.home-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 70px 20px;
+  color: var(--ink-2);
+}
+
+.home-gate-icon {
+  font-size: 40px;
+  margin-bottom: 4px;
+}
+
+.home-gate-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.home-gate-sub {
+  font-size: 13.5px;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+}
+
+/* ---------- Filters ---------- */
+/* Quiet inline controls — a heavy card here competed with the tiles. */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.filter-bar-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink-3);
+  margin-right: 2px;
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  height: 34px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.filter:hover {
+  border-color: #d7dbe3;
+}
+
+.filter:focus-within {
+  border-color: var(--brand-soft);
+  box-shadow: 0 0 0 3px var(--brand-tint);
+}
+
+/* ---------- Custom dropdown ---------- */
+/* Native <select> popups are drawn by the OS and can't be styled, so the whole
+   control is rendered here instead. */
+.sel {
+  position: relative;
+}
+
+.sel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 34px;
+  max-width: 220px;
+  padding: 0 10px 0 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.sel-btn:hover {
+  border-color: #d7dbe3;
+}
+
+.sel-btn:focus-visible {
+  outline: none;
+  border-color: var(--brand-soft);
+  box-shadow: 0 0 0 3px var(--brand-tint);
+}
+
+.sel.open .sel-btn {
+  border-color: var(--brand-soft);
+  box-shadow: 0 0 0 3px var(--brand-tint);
+}
+
+/* An active filter announces itself in the brand colour */
+.sel-btn.is-set {
+  color: var(--brand-dark);
+  font-weight: 600;
+}
+
+.sel-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sel-chevron {
+  width: 9px;
+  height: 6px;
+  flex-shrink: 0;
+  margin-left: auto;
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  transition: transform 0.18s;
+}
+
+.sel.open .sel-chevron {
+  transform: rotate(180deg);
+}
+
+.sel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Keeps labels aligned when only some options carry a colour */
+.sel-dot-none {
+  background: transparent;
+}
+
+/* The open menu is a small popover: an optional search box pinned at top, a
+   scrolling option list, and (multi-select) a footer. It animates in. */
+.sel-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 60;
+  min-width: 100%;
+  max-width: 340px;
+  max-height: 320px;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transform-origin: top center;
+  animation: sel-pop 0.14s ease-out;
+  /* Render by the menu's own rules, not a parent's (e.g. the editor topbar
+     label forces uppercase/bold/letter-spacing on its descendants). */
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+  color: var(--ink-2);
+}
+
+@keyframes sel-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Search box inside the menu */
+.sel-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 8px 6px;
+  padding: 0 11px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.sel-search:focus-within {
+  border-color: var(--brand-soft);
+  box-shadow: 0 0 0 3px var(--brand-tint);
+}
+
+.sel-search-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 1.9;
+  stroke-linecap: round;
+}
+
+.sel-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 13.5px;
+  line-height: normal;
+  color: var(--ink);
+}
+
+.sel-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 5px 5px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.sel-option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--ink-2);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+
+.sel-option.active {
+  background: var(--brand-tint);
+  color: var(--brand-dark);
+}
+
+.sel-option.selected {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.sel-option-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sel-check {
+  margin-left: auto;
+  padding-left: 10px;
+  font-size: 12px;
+  color: var(--brand);
+}
+
+/* Multi-select checkbox marker */
+.sel-box {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--line);
+  border-radius: 5px;
+  font-size: 11px;
+  color: #fff;
+  background: var(--surface);
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.sel-box.on {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.sel-noopt {
+  padding: 16px 10px;
+  text-align: center;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+/* Multi-select footer */
+.sel-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-top: 1px solid var(--line);
+}
+
+.sel-linkbtn {
+  border: none;
+  background: transparent;
+  color: var(--brand);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.sel-linkbtn:disabled {
+  color: var(--ink-3);
+  cursor: default;
+}
+
+.sel-foot-count {
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+
+/* Toolbar filter dropdowns want a comfortable minimum width */
+.sel-wide .sel-btn {
+  min-width: 160px;
+}
+
+/* Empty-but-required company filter announces itself */
+.sel-required .sel-btn {
+  border-color: var(--brand-soft);
+  color: var(--brand-dark);
+  background: var(--brand-tint);
+}
+
+.sel-disabled .sel-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Date inputs size to their content rather than the browser's wide default */
+.filter-date input {
+  width: 116px;
+  color: var(--ink-2);
+}
+
+.filter-affix {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Strip native chrome; the pill is the control's visible frame */
+.filter select,
+.filter input {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink-2);
+  cursor: pointer;
+  max-width: 190px;
+}
+
+.filter select {
+  padding-right: 16px;
+  /* Chevron, inlined so it needs no network request */
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%238b94a3' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  background-size: 9px;
+  text-overflow: ellipsis;
+}
+
+/* An active filter announces itself in the brand colour */
+.filter select.is-set,
+.filter input.is-set {
+  color: var(--brand-dark);
+  font-weight: 600;
+}
+
+.filter input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+.filter input[type='date']:hover::-webkit-calendar-picker-indicator {
+  opacity: 0.8;
+}
+
+.filter-clear {
+  height: 34px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-3);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 0 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.filter-clear:hover {
+  background: var(--brand-tint);
+  color: var(--brand-dark);
+}
+
+/* ---------- Seller groups + tiles ---------- */
+.tile-group {
+  margin-bottom: 34px;
+}
+
+/* Seller name + a hairline rule running to the edge — lighter than a filled
+   bar, and it doesn't compete with the tiles below it. */
+.tile-group-head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+}
+
+.tile-group-swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--seller);
+  box-shadow: 0 0 0 3px rgba(var(--seller-rgb), 0.16);
+  flex-shrink: 0;
+}
+
+.tile-group-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--seller);
+}
+
+.tile-group-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--seller);
+  background: rgba(var(--seller-rgb), 0.12);
+  border-radius: 20px;
+  padding: 2px 8px;
+  line-height: 1.5;
+}
+
+.tile-group-head::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(var(--seller-rgb), 0.22),
+    transparent
+  );
+}
+
+.tile-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+  gap: 14px;
+  /* Size each tile to its own content — stretching a short tile to match a
+     tall neighbour leaves a dead gap above its footer. */
+  align-items: start;
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 17px 17px 15px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.16s, box-shadow 0.16s, transform 0.16s;
+}
+
+.tile:hover {
+  border-color: rgba(var(--seller-rgb), 0.42);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Seller colour reads as a top edge, revealed fully on hover */
+.tile-stripe {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: var(--seller);
+  opacity: 0.55;
+  transition: opacity 0.16s;
+}
+
+.tile:hover .tile-stripe {
+  opacity: 1;
+}
+
+.tile-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.tile-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.32;
+  letter-spacing: -0.15px;
+  /* Keep tiles the same height when a name runs long */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tile-rename {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 3px 6px;
+  border: 1px solid var(--brand-soft);
+  border-radius: 6px;
+  outline: none;
+}
+
+/* Ref no in the seller's colour, with a matching dot to tie tile to group */
+.tile-ref {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--seller);
+  letter-spacing: 0.3px;
+}
+
+.tile-ref-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--seller);
+  flex-shrink: 0;
+}
+
+.tile-customer {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tile-facts {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.tile-dot {
+  opacity: 0.55;
+}
+
+.tile-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.tile-total {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tile-saved {
+  font-size: 10.5px;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+/* Why this tile matched the search */
+.tile-matches {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 8px;
+  padding: 7px 9px;
+  border-radius: 7px;
+  background: rgba(var(--seller-rgb), 0.08);
+  font-size: 11.5px;
+  color: var(--ink-2);
+}
+
+.tile-match {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tile-match-label {
+  font-weight: 700;
+}
+
+/* ⋯ actions menu on each tile */
+.tile-menu-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.tile-dots {
+  border: none;
+  background: transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+.tile:hover .tile-dots {
+  opacity: 0.7;
+}
+
+.tile-dots:hover,
+.tile-dots:focus-visible {
+  opacity: 1;
+  background: #eef0f4;
+}
+
+.tile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  min-width: 150px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+}
+
+.tile-menu-item {
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.tile-menu-item:hover {
+  background: #f5f5f5;
+}
+
+.tile-menu-item.danger {
+  color: #c0392b;
+}
+
+.tile-menu-item.danger:hover {
+  background: #fdecea;
+}
+
+.recent-empty {
+  color: var(--ink-3);
+  font-size: 13.5px;
+  padding: 44px 28px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px dashed #dfe3ea;
+  border-radius: 14px;
+  text-align: center;
+}
+
+/* ---------- Editor top bar ---------- */
+.editor-wrap {
+  min-height: 100vh;
+}
+
+.editor-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  min-height: 58px;
+  padding: 8px 18px;
+  /* Same orange as the home header, so the two bars read as one app */
+  background: linear-gradient(135deg, #b8362a 0%, #8f2a1c 100%);
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 10px rgba(120, 30, 20, 0.22);
+}
+
+/* Editable quotation name. Reads as a label until you focus it. */
+.editor-topbar-title {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  padding: 4px 10px;
+  flex: 1 1 180px;
+  min-width: 120px;
+  max-width: 320px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  outline: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.editor-topbar-title::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.editor-topbar-title:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.editor-topbar-title:focus {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.editor-topbar-spacer {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  padding: 7px 13px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.topbar-field {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.topbar-status {
+  font-size: 12px;
+  color: #8fd6b4;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Read-only (imported/archived) document badge in the editor top bar */
+.topbar-badge {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 4px 11px;
+  white-space: nowrap;
+}
+
+/* The document pages become non-interactive when viewing an archived doc;
+   the top bar (Home, Export) stays usable. */
+.editor-readonly .pages {
+  pointer-events: none;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #cf4433 0%, var(--brand) 100%);
+  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  padding: 7px 15px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: filter 0.15s;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-primary:active {
+  filter: brightness(0.95);
+}
+
+/* Dark-chrome variant of the custom dropdown, for the editor topbar. The
+   popped-open menu stays the light "sel-menu" surface used everywhere else —
+   only the closed control needs to read against a dark background. */
+.sel-topbar .sel-btn {
+  height: auto;
+  padding: 6px 9px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  box-shadow: none;
+  font-size: 12.5px;
+  font-weight: 500;
+  width: clamp(120px, 16vw, 180px);
+}
+
+.sel-topbar .sel-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.sel-topbar.open .sel-btn,
+.sel-topbar .sel-btn:focus-visible {
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: none;
+}
+
+.sel-topbar .sel-btn.is-set {
+  color: #fff;
+  font-weight: 500;
+}
+
+.sel-topbar .sel-chevron {
+  stroke: rgba(255, 255, 255, 0.6);
+}
+
+.sel-topbar-narrow .sel-btn {
+  width: 78px;
+}
+
+/* ---------- Letterhead (real seller data) ---------- */
+.letterhead {
+  text-align: center;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.letterhead-logo {
+  font-size: 30px;
+  font-weight: 800;
+  color: #c0392b;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.letterhead-img {
+  max-height: 80px;
+  max-width: 100%;
+  margin-bottom: 8px;
+}
+
+.letterhead-address {
+  font-size: 13px;
+  text-decoration: underline;
+  margin-bottom: 4px;
+}
+
+.letterhead-contact {
+  font-size: 13px;
+}
+
+/* True A4 geometry so the editor is WYSIWYG with the PDF.
+   A4 @96dpi = 794 x 1122px. Margins 14mm (53px) and 12mm (45px) are drawn as
+   padding on screen, but come from the print engine in the PDF — either way the
+   content box is identical: 688 x 1032. content-box sizing keeps that exact. */
+/* Stacked, detached sheets — the editor shows the same pages the PDF will. */
+.pages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 28px 0;
+}
+
+/* Anchors the row-action gutter that sits outside the sheet. */
+.page-wrap {
+  position: relative;
+}
+
+.page {
+  box-sizing: content-box;
+  width: 688px;
+  height: 1032px;
+  padding: 45px 53px;
+  margin: 0;
+  background: #fff;
+  box-shadow: var(--shadow-md), 0 0 0 1px rgba(20, 26, 38, 0.05);
+  /* visible so the gutter buttons can escape the sheet; pagination keeps the
+     content itself within the page, and print clips it back to be safe */
+  overflow: visible;
+}
+
+/* Placeholder styling for the skeleton — will be replaced with real design */
+.skeleton {
+  border: 1px dashed #bbb;
+  padding: 12px;
+  margin-bottom: 16px;
+  color: #777;
+  font-size: 14px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.skeleton-logo {
+  font-weight: 700;
+  font-size: 22px;
+  color: #c0392b;
+  border: 1px dashed #c0392b;
+  padding: 16px 24px;
+}
+
+.skeleton-lines {
+  flex: 1;
+}
+
+.party {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 16px;
+}
+
+.party-col {
+  flex: 1;
+  font-size: 14px;
+}
+
+.party-col-right {
+  max-width: 260px;
+}
+
+.party-col-right > div {
+  margin-bottom: 6px;
+}
+
+.party-to,
+.party-attn {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.party-label {
+  white-space: nowrap;
+  color: #333;
+}
+
+/* Inline-editable fields that read like plain document text — but visible at
+   rest, not just on hover/focus, so it's clear what's editable at a glance.
+   Print strips all of this back to plain text (see @media print below). */
+.inline-input {
+  font: inherit;
+  color: #1a1a1a;
+  border: none;
+  border-bottom: 1px dashed #bbb;
+  background: rgba(52, 96, 160, 0.045);
+  padding: 1px 2px;
+  outline: none;
+  width: 100%;
+  resize: none;
+  font-family: inherit;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+.inline-input:hover {
+  border-bottom-color: #999;
+  background: rgba(52, 96, 160, 0.08);
+}
+
+.inline-input:focus {
+  border-bottom-color: #c0392b;
+  background: #fdf7f6;
+}
+
+.inline-input::placeholder {
+  color: #bbb;
+}
+
+.inline-strong {
+  font-weight: 700;
+}
+
+.inline-address {
+  display: block;
+  line-height: 1.4;
+}
+
+/* Right-column meta rows (GSTIN / PAN / REF / DATE) */
+.meta-row {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.meta-row .party-label {
+  min-width: 70px;
+}
+
+.meta-value {
+  display: inline;
+}
+
+.inline-refno {
+  width: auto;
+  min-width: 1ch;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 0;
+  field-sizing: content;
+}
+
+/* Date: the printed text is always what's shown; the button only opens a
+   picker, and the input itself is removed from layout entirely. */
+.date-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0 4px;
+  opacity: 0.6;
+}
+
+.date-btn:hover {
+  opacity: 1;
+}
+
+.date-hidden {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.meta-hint {
+  color: #bbb;
+  font-style: italic;
+}
+
+.title {
+  text-align: center;
+  text-decoration: underline;
+  letter-spacing: 1px;
+  margin: 24px 0 8px;
+}
+
+.preamble {
+  font-size: 14px;
+  margin: 0 0 16px;
+}
+
+.table-body {
+  min-height: 120px;
+  padding: 24px 0;
+}
+
+/* ---------- Line-items table ---------- */
+.items {
+  margin-bottom: 16px;
+}
+
+/* Retained for reference; the currency picker now lives in the editor top bar
+   so no editor-only control occupies space inside the page. */
+.items-toolbar {
+  display: none;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+}
+
+.items-currency {
+  font-size: 13px;
+  color: #555;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.items-currency select {
+  padding: 3px 6px;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+}
+
+/* Collapsed borders = single 1px grid lines (no print doubling). Safe as long
+   as no table CELL is positioned — so the ✕ anchors to an inner .amt-cell div
+   instead, and cells only use overflow (never position). */
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 13px;
+}
+
+.items-table th,
+.items-table td {
+  border: 1px solid #333;
+  padding: 4px 6px;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.items-table th {
+  position: relative;
+  background: #fafafa;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.items-table .num {
+  text-align: right;
+}
+
+.items-table .c-sr {
+  text-align: center;
+}
+
+/* Amount cell lets the ✕ overflow to the right; it is NOT positioned (that
+   would drop its collapsed borders) — the inner .amt-cell div is the anchor. */
+.items-table td.c-amt {
+  overflow: visible;
+}
+
+/* Deliberately NOT positioned: the row buttons anchor to .page-wrap instead,
+   which puts them in the gutter outside the sheet. */
+.amt-cell {
+  position: static;
+}
+
+/* Drag handle sitting on each column's right border */
+.col-resizer {
+  position: absolute;
+  top: 0;
+  right: -3px;
+  width: 7px;
+  height: 100%;
+  cursor: col-resize;
+  user-select: none;
+  z-index: 2;
+}
+
+.col-resizer:hover {
+  background: rgba(192, 57, 43, 0.35);
+}
+
+/* The filler row's height is computed in JS and set inline, so the table is
+   never stretched — which means no other row can be inflated. All the leftover
+   page space lands here, between the last item row and the totals row.
+   The Add-row button sits at its top-left, overflowing to the right. */
+.filler-row td {
+  overflow: visible;
+  vertical-align: top;
+}
+
+.cell-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font: inherit;
+  background: rgba(52, 96, 160, 0.045);
+  padding: 2px;
+  resize: none;
+  overflow: hidden;
+  transition: background 0.1s;
+}
+
+.cell-input:hover {
+  background: rgba(52, 96, 160, 0.08);
+}
+
+.cell-input:focus {
+  background: #fdf7f6;
+}
+
+.cell-input.num {
+  text-align: right;
+}
+
+.cell-desc {
+  line-height: 1.35;
+}
+
+/* Qty and unit sit side by side: stacking them made every row two lines tall
+   (51px), which is what pushed a 10-row quote onto a second page. */
+.qty-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.qty-wrap .cell-input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.qty-wrap .sel-unit {
+  flex: 0 0 auto;
+}
+
+/* The qty cell's overflow must stay visible so the unit dropdown's popped-open
+   list can escape it — same treatment as .c-amt's delete button below. The
+   closed control's own size still governs row height (kept close to the old
+   native select's), so this doesn't touch pagination. */
+.items-table td.c-qty {
+  overflow: visible;
+}
+
+/* Compact dropdown variant for the qty cell's unit (Nos/Kg/Meters/Set). Sized
+   to match the old native <select> so row heights — and pagination — don't
+   shift; print strips it back to plain text just like the other doc fields. */
+.sel-unit .sel-btn {
+  height: 18px;
+  min-width: 0;
+  max-width: 58px;
+  padding: 0 4px 0 5px;
+  gap: 3px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: rgba(52, 96, 160, 0.045);
+  box-shadow: none;
+  font-size: 11px;
+  color: inherit;
+}
+
+.sel-unit .sel-btn:hover {
+  border-color: #999;
+  background: rgba(52, 96, 160, 0.08);
+}
+
+.sel-unit.open .sel-btn,
+.sel-unit .sel-btn:focus-visible {
+  border-color: #c0392b;
+  box-shadow: none;
+}
+
+.sel-unit .sel-chevron {
+  width: 6px;
+  height: 4px;
+  margin-left: 1px;
+}
+
+.sel-unit .sel-menu {
+  min-width: 84px;
+  font-size: 12px;
+  padding: 3px;
+}
+
+.sel-unit .sel-option {
+  padding: 5px 7px;
+}
+
+/* In the gutter outside the sheet. `top` is set by the editor's layout pass so
+   each button is centred on its own row, whatever height that row grows to. */
+/* Same size and weight as ＋ Add item; the solid border (vs dashed) is the
+   only thing distinguishing the destructive action. */
+.row-del {
+  position: absolute;
+  left: 100%;
+  margin-left: 16px;
+  white-space: nowrap;
+  background: var(--surface);
+  border: 1px solid var(--brand-soft);
+  color: var(--brand);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 13px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.row-del:hover {
+  background: var(--brand-tint);
+  border-color: var(--brand);
+}
+
+.row-del:active {
+  transform: translateY(1px);
+}
+
+/* Add-row lives in the same gutter, level with the totals row. */
+.add-row-side {
+  position: absolute;
+  left: 100%;
+  margin-left: 16px;
+  white-space: nowrap;
+  background: var(--surface);
+  border: 1px dashed var(--brand);
+  color: var(--brand);
+  border-radius: 999px;
+  padding: 6px 13px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.15s, transform 0.1s;
+}
+
+.add-row-side:hover {
+  background: var(--brand-tint);
+}
+
+.add-row-side:active {
+  transform: translateY(1px);
+}
+
+.total-row td {
+  background: #fafafa;
+  font-size: 13px;
+}
+
+.total-words {
+  text-align: left;
+}
+
+.total-label {
+  font-weight: 600;
+  text-align: right;
+}
+
+.total-figure {
+  font-weight: 700;
+}
+
+/* Row actions (✕ delete, ＋ add row) live in the gutter beside the sheet —
+   see .row-del / .add-row-side. Nothing editor-only sits inside the page. */
+
+/* ---------- Terms block ---------- */
+.terms {
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.term-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.term-label {
+  min-width: 150px;
+  white-space: nowrap;
+}
+
+.term-input {
+  flex: 1;
+}
+
+/* ---------- Notes block (free text, below terms) ---------- */
+.notes {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.notes-label {
+  min-width: 150px;
+  white-space: nowrap;
+}
+
+.notes-input {
+  flex: 1;
+}
+
+.signature {
+  text-align: right;
+  color: #333;
+  font-size: 14px;
+  margin-top: 40px;
+  margin-left: auto; /* pushed right even when a Delivery-At block sits beside it */
+  align-self: flex-end;
+}
+
+/* PO: free-text lines (Your Ref / Your Enquiry) between title and preamble */
+.extra-meta {
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+.extra-meta-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.extra-meta-label {
+  white-space: nowrap;
+  color: #333;
+}
+
+.extra-meta-row .inline-input {
+  flex: 1;
+}
+
+/* Wraps terms + footer so pagination can measure the true tail height */
+.doc-tail {
+  display: block;
+}
+
+/* PO: Delivery-At (left) and the signature (right) share the closing row */
+.doc-foot {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.delivery-at {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  max-width: 55%;
+  margin-top: 40px;
+}
+
+.delivery-body {
+  flex: 1;
+}
+
+.delivery-body .inline-address {
+  margin-top: 2px;
+}
+
+/* ---------- Multi-select popup (company / party filters) ---------- */
+.ms-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 210;
+  padding: 20px;
+}
+
+.ms-popup {
+  width: 440px;
+  max-width: 100%;
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.ms-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ms-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.ms-x {
+  border: none;
+  background: transparent;
+  color: var(--ink-3);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+.ms-x:hover {
+  background: var(--line-soft);
+  color: var(--ink);
+}
+
+.ms-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 14px 8px;
+  padding: 0 11px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.ms-search:focus-within {
+  border-color: var(--brand-soft);
+  box-shadow: 0 0 0 3px var(--brand-tint);
+}
+
+.ms-search-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 1.9;
+  stroke-linecap: round;
+}
+
+.ms-search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--ink);
+}
+
+.ms-search-clear {
+  border: none;
+  background: transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+  font-size: 11px;
+  padding: 4px 5px;
+  border-radius: 5px;
+}
+
+.ms-search-clear:hover {
+  background: var(--line-soft);
+  color: var(--ink);
+}
+
+.ms-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 16px 6px;
+}
+
+.ms-linkbtn {
+  border: none;
+  background: transparent;
+  color: var(--brand);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.ms-linkbtn:hover {
+  text-decoration: underline;
+}
+
+.ms-count {
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+
+.ms-menu {
+  flex: 1;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 4px 8px 8px;
+}
+
+/* Rows reuse .sel-option; the leading checkbox is the only addition */
+.ms-menu .sel-option {
+  gap: 10px;
+}
+
+.ms-check {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--line);
+  border-radius: 5px;
+  font-size: 11px;
+  color: #fff;
+  background: var(--surface);
+}
+
+.ms-check.on {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.ms-option-sub {
+  display: block;
+  font-size: 11px;
+  color: var(--ink-3);
+  font-weight: 400;
+}
+
+.ms-empty {
+  padding: 20px;
+  text-align: center;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.ms-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+}
+
+.ms-foot-spacer {
+  flex: 1;
+}
+
+/* ---------- Modal + managers ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  animation: overlay-fade 0.16s ease-out;
+}
+
+@keyframes overlay-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  background: var(--surface);
+  width: 760px;
+  max-width: 94vw;
+  max-height: 90vh;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  animation: modal-pop 0.2s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: linear-gradient(135deg, #cf4433 0%, #a5311f 100%);
+  color: #fff;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.modal-x {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modal-body {
+  display: flex;
+  gap: 0;
+  flex: 1;
+  min-height: 0;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 20px;
+  border-top: 1px solid #eee;
+}
+
+.btn-ghost-dark {
+  background: #fff;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* Manager: left list */
+.mgr-list {
+  width: 220px;
+  border-right: 1px solid #eee;
+  padding: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mgr-list-item {
+  text-align: left;
+  padding: 9px 10px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.mgr-list-item:hover {
+  background: #f5f5f5;
+}
+
+.mgr-list-item.active {
+  background: #fdecea;
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.mgr-add {
+  margin-top: 8px;
+  border: 1px dashed #c0392b;
+  color: #c0392b;
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* Manager: right form */
+.mgr-form {
+  flex: 1;
+  padding: 18px 20px;
+  overflow-y: auto;
+}
+
+.mgr-empty {
+  color: var(--ink-3);
+}
+
+.mgr-field {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.mgr-field span {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.mgr-field input,
+.mgr-field textarea {
+  width: 100%;
+  padding: 7px 9px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: inherit;
+  resize: vertical;
+}
+
+/* Per-company running serial numbers (Manage My Companies only) */
+.mgr-serials {
+  margin: 4px 0 16px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--canvas);
+}
+
+.mgr-serials-title {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+}
+
+.mgr-serials-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mgr-field-inline {
+  flex: 1 1 120px;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+/* Seller colour picker: presets plus a free choice */
+.mgr-color-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mgr-swatch {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  padding: 0;
+}
+
+.mgr-swatch.active {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px var(--ink);
+}
+
+.mgr-field .mgr-color-custom {
+  width: 38px;
+  height: 28px;
+  padding: 2px;
+  cursor: pointer;
+  background: none;
+}
+
+.mgr-logo-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.mgr-logo-preview {
+  width: 140px;
+  height: 70px;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mgr-logo-preview img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.mgr-logo-empty {
+  color: #bbb;
+  font-size: 12px;
+}
+
+.mgr-logo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mgr-logo-actions button {
+  padding: 6px 12px;
+  border: 1px solid #bbb;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.link-danger {
+  color: #c0392b;
+  border-color: #e2a9a2 !important;
+}
+
+.mgr-delete {
+  margin-top: 8px;
+  background: #fff;
+  border: 1px solid #e2a9a2;
+  color: #c0392b;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* ---------- Toast (transient notice) ---------- */
+.toast {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(27, 32, 41, 0.95);
+  color: #fff;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  z-index: 100;
+  animation: toast-in 0.22s ease-out;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* ---------- Motion polish ---------- */
+/* A gentle default so every button eases between states instead of snapping.
+   Controls that declare their own `transition` keep it (this is just the base
+   for the ones that don't). */
+button {
+  transition: background 0.15s ease, border-color 0.15s ease,
+    color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease, filter 0.15s ease;
+}
+
+/* Tactile press feedback on the main actions */
+.btn-primary:active,
+.btn-ghost:active,
+.btn-ghost-dark:active,
+.sel-btn:active,
+.home-tab:active,
+.mgr-add:active,
+.tile-menu-item:active {
+  transform: translateY(1px);
+}
+
+/* Manager list rows + swatches ease on hover too */
+.mgr-list-item,
+.mgr-swatch,
+.mgr-logo-actions button,
+.tile-menu-item,
+.modal-x,
+.row-del,
+.add-row-side {
+  transition: background 0.14s ease, border-color 0.14s ease,
+    color 0.14s ease, transform 0.1s ease, box-shadow 0.14s ease;
+}
+
+/* Honour users who ask for less motion: keep states, drop the movement. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Print / PDF output ---------- */
+@media print {
+  body {
+    background: #fff;
+  }
+
+  /* Hide all editor-only chrome. The gutter buttons sit outside .page but are
+     still inside the printed body, so they must be hidden explicitly. */
+  .editor-topbar,
+  .items-toolbar,
+  .add-row-side,
+  .row-del,
+  .col-resizer {
+    display: none !important;
+  }
+
+  /* Clip back to the sheet in print — the gutter only exists on screen. */
+  .page {
+    overflow: hidden;
+  }
+
+  /* Margins come from printToPDF (so every page gets them, including at page
+     breaks), hence no padding here. The content box then matches the editor's
+     exactly: 688 x ~1032. min-height is a hair under to avoid spilling into a
+     blank second page. */
+  .page {
+    box-sizing: border-box;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    height: 1030px;
+  }
+
+  /* Editable fields render as plain document text. Note: padding is deliberately
+     NOT reset — changing it here would make print rows shorter than the editor's
+     and invalidate the filler height measured on screen. */
+  .inline-input,
+  .cell-input,
+  .sel-unit .sel-btn {
+    border-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* The unit dropdown's chevron and popup are editor-only chrome. */
+  .sel-unit .sel-chevron,
+  .sel-menu {
+    display: none !important;
+  }
+
+  /* The app has already split the content into pages, so each .page becomes
+     exactly one sheet. The browser never fragments anything, which is what
+     makes the editor and the PDF identical. */
+  .pages {
+    display: block;
+    gap: 0;
+    padding: 0;
+  }
+
+  .page {
+    break-after: page;
+    page-break-after: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  /* thead must NOT repeat automatically — we render it per page ourselves. */
+  .items-table thead {
+    display: table-header-group;
+  }
+
+  /* The date reads as plain text already; only its picker button is hidden. */
+  .date-btn {
+    display: none !important;
+  }
+}
