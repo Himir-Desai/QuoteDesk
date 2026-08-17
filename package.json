@@ -1,9 +1,9 @@
 {
   "name": "quotation-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Quotation builder and PDF exporter",
   "main": "out/main/main.js",
-  "author": "",
+  "author": "Himir Desai",
   "scripts": {
     "dev": "electron-vite dev",
     "build": "electron-vite build",
@@ -37,9 +37,14 @@
       {
         "from": "archive",
         "to": "archive"
+      },
+      {
+        "from": "build/icon.png",
+        "to": "icon.png"
       }
     ],
     "win": {
+      "icon": "build/icon.ico",
       "target": [
         {
           "target": "nsis",
@@ -53,7 +58,9 @@
       "oneClick": false,
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
-      "deleteAppDataOnUninstall": false
+      "deleteAppDataOnUninstall": false,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
     },
     "publish": [
       {

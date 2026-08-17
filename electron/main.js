@@ -8,7 +8,8 @@ import {
   saveDoc,
   deleteDoc,
   getArchiveManifest,
-  getArchivePartition
+  getArchivePartition,
+  runOneTimeMigrations
 } from './store.js'
 
 const { autoUpdater } = electronUpdater
@@ -201,10 +202,18 @@ ipcMain.on('menu:context', (_e, view) => {
 let allowClose = false
 let closeTimer = null
 
+// App icon for the running window / taskbar. In production the packaged .exe
+// already carries the icon; this also covers dev and Linux. Shipped via
+// extraResources (see package.json), and read from the project's build/ in dev.
+const windowIcon = app.isPackaged
+  ? join(process.resourcesPath, 'icon.png')
+  : join(app.getAppPath(), 'build', 'icon.png')
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 1100,
     height: 900,
+    icon: windowIcon,
     webPreferences: {
       preload: join(__dirname, '../preload/preload.js'),
       contextIsolation: true,
@@ -304,8 +313,10 @@ ipcMain.handle('image:pick', async (event) => {
   return `data:${mime};base64,${buf.toString('base64')}`
 })
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
   buildMenu()
+  // Backfill full buyer/supplier lists into pre-existing installs (runs once).
+  await runOneTimeMigrations()
   createWindow()
 
   app.on('activate', () => {

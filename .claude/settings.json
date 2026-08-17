@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p electron/seed)",
+      "Bash(cp \"/c/Users/himir/AppData/Roaming/quotation-app/customers.json\" electron/seed/customers.json)",
+      "Bash(cp \"/c/Users/himir/AppData/Roaming/quotation-app/suppliers.json\" electron/seed/suppliers.json)",
+      "Bash(python -c ' *)"
+    ]
+  }
+}

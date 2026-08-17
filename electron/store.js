@@ -1,6 +1,12 @@
 import { app } from 'electron'
 import { join } from 'path'
 import { readFile, writeFile } from 'fs/promises'
+// Full default buyer/supplier lists (imported from the legacy databases),
+// bundled so a FRESH install starts with them. These are only ever used when
+// the corresponding userData file is missing — see getCollection — so updates
+// never overwrite a list the user has since edited.
+import SEED_CUSTOMERS from './seed/customers.json'
+import SEED_SUPPLIERS from './seed/suppliers.json'
 
 // JSON files live in the OS-specific userData folder (created by Electron).
 const filePath = (name) => join(app.getPath('userData'), name)
@@ -101,25 +107,7 @@ const SEED_COMPANIES = [
   }
 ]
 
-const SEED_CUSTOMERS = [
-  {
-    id: 'apollo',
-    name: 'APOLLO TYRES LTD',
-    address: 'AT & PO: LIMDA, TA: WAGHODIA\nDIST: VADODARA',
-    contact: ''
-  }
-]
-
-const SEED_SUPPLIERS = [
-  {
-    id: 'sew',
-    name: 'SEW EURODRIVE INDIA PVT LTD',
-    address: 'PLOT NO 4, G I D C\nPOR RAMANGAMDI, VADODARA-381243',
-    contact: '',
-    gstin: '',
-    pan: ''
-  }
-]
+// SEED_CUSTOMERS / SEED_SUPPLIERS are imported above from bundled seed files.
 
 // Every collection is one JSON file. Documents (quotations / purchase orders)
 // deliberately live in SEPARATE files: no migration of existing data, and each
@@ -197,4 +185,67 @@ export async function deleteDoc(key, id) {
   const list = await getCollection(key)
   await saveCollection(key, list.filter((d) => d.id !== id))
   return true
+}
+
+/* ------------------------------------------------------------------ *
+ * One-time migrations
+ *
+ * Seeds only fill a MISSING file, so an install that already has (say) just
+ * the one sample buyer never receives the full bundled list. A migration
+ * backfills those existing installs exactly once. Each migration records a
+ * flag in migrations.json, so it runs a single time and never again — updates
+ * won't re-run it, and anything the user has since added is preserved (the
+ * merge is purely additive, keyed by id and normalised name).
+ * ------------------------------------------------------------------ */
+
+const normName = (s) =>
+  String(s || '').toUpperCase().replace(/\s+/g, ' ').trim()
+
+// Add any seed entries not already present (by id or name) to an EXISTING
+// file. Missing files are left for the normal fresh-install seed path.
+async function backfillCollection(key, seed) {
+  const spec = COLLECTIONS[key]
+  let list
+  try {
+    list = await readJson(spec.file)
+  } catch {
+    return 0 // no file yet → fresh install seeds the full list on first read
+  }
+  const ids = new Set(list.map((x) => x.id))
+  const names = new Set(list.map((x) => normName(x.name)))
+  let added = 0
+  for (const entry of seed) {
+    if (ids.has(entry.id) || names.has(normName(entry.name))) continue
+    list.push(entry)
+    ids.add(entry.id)
+    names.add(normName(entry.name))
+    added++
+  }
+  if (added) await writeJson(spec.file, list)
+  return added
+}
+
+export async function runOneTimeMigrations() {
+  let flags = {}
+  try {
+    flags = await readJson('migrations.json')
+  } catch {
+    /* first run — no flags yet */
+  }
+
+  // v1: backfill the full buyer/supplier lists into installs that predate them.
+  if (!flags.seedFullPartiesV1) {
+    try {
+      await backfillCollection('customers', SEED_CUSTOMERS)
+      await backfillCollection('suppliers', SEED_SUPPLIERS)
+    } catch {
+      /* never block startup on a migration */
+    }
+    flags.seedFullPartiesV1 = new Date().toISOString()
+    try {
+      await writeJson('migrations.json', flags)
+    } catch {
+      /* if we can't record the flag, better to skip than loop forever */
+    }
+  }
 }

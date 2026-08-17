@@ -5,22 +5,25 @@
 /* Design tokens for the app chrome. The document itself deliberately does not
    use these — it must stay byte-identical to the printed output. */
 :root {
-  --brand: #c0392b;
-  --brand-dark: #a5311f;
-  --brand-tint: #fdf0ee;
-  --brand-soft: #f3c7c0;
-  --ink: #1b2029;
-  --ink-2: #59616e;
-  --ink-3: #8b94a3;
-  --line: #e6e8ee;
-  --line-soft: #eef0f4;
+  /* Brand accent taken from the app logo — a vibrant orange on charcoal. */
+  --brand: #ed5a1b;
+  --brand-dark: #c4470f;
+  --brand-tint: #fdf1e9;
+  --brand-soft: #f6c6a4;
+  /* Header/brand gradient, echoing the logo's orange swoosh */
+  --brand-grad: linear-gradient(135deg, #f36c1d 0%, #d8480e 100%);
+  --ink: #1f1c1a;
+  --ink-2: #5f5a55;
+  --ink-3: #948b83;
+  --line: #ece7e2;
+  --line-soft: #f4f0ec;
   --surface: #ffffff;
-  --canvas: #f5f6f9;
+  --canvas: #f7f5f2;
   --radius: 10px;
   /* Layered, low-opacity shadows read softer than a single dark one */
-  --shadow-sm: 0 1px 2px rgba(20, 26, 38, 0.05);
-  --shadow-md: 0 2px 4px rgba(20, 26, 38, 0.04), 0 8px 20px rgba(20, 26, 38, 0.07);
-  --shadow-lg: 0 18px 50px rgba(20, 26, 38, 0.18);
+  --shadow-sm: 0 1px 2px rgba(38, 26, 20, 0.05);
+  --shadow-md: 0 2px 4px rgba(38, 26, 20, 0.04), 0 8px 20px rgba(38, 26, 20, 0.07);
+  --shadow-lg: 0 18px 50px rgba(38, 26, 20, 0.18);
 }
 
 body {
@@ -61,7 +64,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: linear-gradient(135deg, #b8362a 0%, #8f2a1c 100%);
+  background: var(--brand-grad);
   color: #fff;
   box-shadow: 0 1px 3px rgba(20, 26, 38, 0.16);
 }
@@ -1203,11 +1206,11 @@ body {
 }
 
 .tile-menu-item.danger {
-  color: #c0392b;
+  color: var(--brand);
 }
 
 .tile-menu-item.danger:hover {
-  background: #fdecea;
+  background: var(--brand-tint);
 }
 
 .recent-empty {
@@ -1236,7 +1239,7 @@ body {
   min-height: 58px;
   padding: 8px 18px;
   /* Same orange as the home header, so the two bars read as one app */
-  background: linear-gradient(135deg, #b8362a 0%, #8f2a1c 100%);
+  background: var(--brand-grad);
   color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 2px 10px rgba(120, 30, 20, 0.22);
@@ -1335,7 +1338,7 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(180deg, #cf4433 0%, var(--brand) 100%);
+  background: linear-gradient(180deg, #f9803a 0%, var(--brand) 100%);
   color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 8px;
@@ -1407,7 +1410,7 @@ body {
 .letterhead-logo {
   font-size: 30px;
   font-weight: 800;
-  color: #c0392b;
+  color: var(--brand);
   letter-spacing: 0.5px;
   margin-bottom: 8px;
 }
@@ -1478,8 +1481,8 @@ body {
 .skeleton-logo {
   font-weight: 700;
   font-size: 22px;
-  color: #c0392b;
-  border: 1px dashed #c0392b;
+  color: var(--brand);
+  border: 1px dashed var(--brand);
   padding: 16px 24px;
 }
 
@@ -1543,8 +1546,8 @@ body {
 }
 
 .inline-input:focus {
-  border-bottom-color: #c0392b;
-  background: #fdf7f6;
+  border-bottom-color: var(--brand);
+  background: var(--brand-tint);
 }
 
 .inline-input::placeholder {
@@ -1747,7 +1750,7 @@ body {
 }
 
 .cell-input:focus {
-  background: #fdf7f6;
+  background: var(--brand-tint);
 }
 
 .cell-input.num {
@@ -1808,7 +1811,7 @@ body {
 
 .sel-unit.open .sel-btn,
 .sel-unit .sel-btn:focus-visible {
-  border-color: #c0392b;
+  border-color: var(--brand);
   box-shadow: none;
 }
 
@@ -2245,7 +2248,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 18px 22px;
-  background: linear-gradient(135deg, #cf4433 0%, #a5311f 100%);
+  background: var(--brand-grad);
   color: #fff;
 }
 
@@ -2312,15 +2315,15 @@ body {
 }
 
 .mgr-list-item.active {
-  background: #fdecea;
-  color: #c0392b;
+  background: var(--brand-tint);
+  color: var(--brand);
   font-weight: 600;
 }
 
 .mgr-add {
   margin-top: 8px;
-  border: 1px dashed #c0392b;
-  color: #c0392b;
+  border: 1px dashed var(--brand);
+  color: var(--brand);
   background: #fff;
   border-radius: 6px;
   padding: 8px;
@@ -2465,7 +2468,7 @@ body {
 }
 
 .link-danger {
-  color: #c0392b;
+  color: var(--brand);
   border-color: #e2a9a2 !important;
 }
 
@@ -2473,7 +2476,7 @@ body {
   margin-top: 8px;
   background: #fff;
   border: 1px solid #e2a9a2;
-  color: #c0392b;
+  color: var(--brand);
   border-radius: 6px;
   padding: 8px 14px;
   cursor: pointer;

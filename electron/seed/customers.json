@@ -1,0 +1,944 @@
+[
+  {
+    "id": "apollo",
+    "name": "APOLLO TYRES LTD",
+    "address": "AT & PO: LIMDA, TA: WAGHODIA\nDIST: VADODARA",
+    "contact": ""
+  },
+  {
+    "id": "2e650cd1-cf8a-42f1-a427-35dc13a36dbf",
+    "name": "MOVETONES Castors Pvt Ltd",
+    "address": "E-59, SECTOR 7\nNOIDA-201301",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "e2d4ff6f-6f55-4e76-9d49-f9968016a234",
+    "name": "CEAT LTD.",
+    "address": "GET MUWALA, HALOL, PANCHMAHAL\nGUJARAT",
+    "contact": "",
+    "gstin": "24AAACC1645G1Z5",
+    "pan": "AAACC1645G"
+  },
+  {
+    "id": "74667d2a-b382-4b6e-be47-40bb3541bded",
+    "name": "APOLLO TYRES LTD(LIMDA)",
+    "address": "P.O Limda, Tal:Waghodia\nDist: Vadodara, Gujarat",
+    "contact": "",
+    "gstin": "24AAACA6990Q1Z4",
+    "pan": "AAACA6990Q"
+  },
+  {
+    "id": "84fabcde-6892-4c91-b018-f8bf55457fdc",
+    "name": "APOLLO TYRES LTD(CHENNAI)",
+    "address": "B-25 SIPCOT Industrial Growth Center, Oragadam and Mathur Village, Singaperumalkoil\nSriperumbudur-602105, Tamil Nadu",
+    "contact": "",
+    "gstin": "33AAACA6990Q1Z5",
+    "pan": "AAACA6990Q"
+  },
+  {
+    "id": "38f80797-6897-4d3d-a106-6006c2718914",
+    "name": "APOLLO TYRES LTD (H0)",
+    "address": "7 ,INSTITUTION AREA, SECTOR-32, GURGA0N-122001",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "b7d60546-136d-40cf-b560-e3ec3b576aa9",
+    "name": "APOLLO TYRES LTD (PERAMBARA)",
+    "address": "NEAR CHALAKUDI, TRICHUR, PERAMABARA-680689",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "6ce348b3-3a0a-460f-8528-98bbbf940584",
+    "name": "BRIDGESTONE INDIA PRIVATE LIMITED",
+    "address": "PLOT NO.12KHEDA GROWTH CENTER, PITHAMPUR, POST SAGOR, DHAR, M.P.\nMADHYA PRADESH",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "1e8aa2f5-cbbd-4dc3-a26b-28bf1c9d33b9",
+    "name": "SMC CORPORATION (INDIA)PVT LTD",
+    "address": "PLOT NO :106 to 110, Gallop Industrial estate, Sarkhej Bavda road NH8\nRajoda-Ahmedabad-382220",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "c8cb3385-52f4-4e8d-9ec9-dca322a0c38c",
+    "name": "SICCO ENGINEERING WORKS",
+    "address": "454 Sidco Industrieal Estate, Ambattur\nChennai-600098",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "e36abe45-951d-4978-8d4e-90cc5c4f7b7d",
+    "name": "Larsen & Tubro Ltd",
+    "address": "Baroda\nBaroda",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "1caf61fd-7c58-4032-a137-3d811ecfe9e0",
+    "name": "J K Tyres And Industries Ltd",
+    "address": "Plant: Radial Tyre Plant,, OFF, Tambaram Road SH-110,, Kolathur,Sriperumbudur,\nTamilnadu-602105",
+    "contact": "",
+    "gstin": "",
+    "pan": "AAACJ6716F"
+  },
+  {
+    "id": "bd474014-7277-45d6-95bd-d02d5aecc66e",
+    "name": "KEC International (Cable Divison)",
+    "address": "Village: Samlaya, Ta: Savli, Dist: Vadodara",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "95a30436-342a-4e64-b25a-dd9ab8d571c5",
+    "name": "Devashish Infrastructure Pvt Ltd",
+    "address": "305 Silver Plaza, Opp.Tube Company,, Old Padra Road\nVadodara",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "df964be7-55d4-4c84-8584-a25b2ed71726",
+    "name": "Birla Tyres Ltd",
+    "address": "UNIT - IV , AT & PO : CHHANPUR, (ON NH 5) VIA :, KURUDA,, DIST : BALASORE - 756056, ORRISA\nOdisha (Formerly Orissa)",
+    "contact": "",
+    "gstin": "",
+    "pan": "21321500073"
+  },
+  {
+    "id": "f6ce9845-c98a-4951-8335-dd5d044c0fb5",
+    "name": "Thermex India Ltd",
+    "address": "G I D C, Manjusar, Dist:Vadodara",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "a30e5c7a-827c-4fb5-bf2b-ab56f5c0de00",
+    "name": "Speciality Urethanes Pvt Ltd",
+    "address": "N-19 Additional MIDC, SATARA-415004, Maharastra",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "561c6111-4317-430c-9846-cf82b66addb5",
+    "name": "Adanni Wilmar Ltd",
+    "address": "Village:Dhurb, Taluka:Mundra, Dist: Kutch\nGujarat",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "157b8b66-6adf-447b-b0c7-c58e003cfaf1",
+    "name": "CONTINENTAL INDIA LIMITED",
+    "address": "CONTINENTAL INDIA MODIPURAM PRODUCTION TIRES,,, NH-58,MEERUT ROORKEE ROAD,MEERUT-250110(U.P.)\nUttar Pradesh",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "6625f9eb-2f01-43b7-9474-6915748f0b66",
+    "name": "Balakrishna Tyres Ltd",
+    "address": "Bhuj",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "8c8630f6-23ad-4483-89e4-320728ec48cc",
+    "name": "M.R Beltings",
+    "address": "35th K.M,G T Road,Rasoi, Sonepat-131029, Haryana",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "f5019b6b-50f7-40f6-a870-5af704f6189c",
+    "name": "Earth Tekniks",
+    "address": "NO-1-11-252,Flat no 1,Jabbar Estate, Begumpet,Hydrabad-500016,A.P",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "e928c82e-a3ab-4137-92a6-7767f3944a5c",
+    "name": "Piramal Glass Ltd",
+    "address": "Gajera Road, Village:Ucchad,, Jambusar\nBharuch-392150",
+    "contact": "",
+    "gstin": "24AABCG0093R1ZD",
+    "pan": "AABCG0093R"
+  },
+  {
+    "id": "1916d4e7-50e0-482f-9f69-5b30b612be43",
+    "name": "Govind Rubber Ltd",
+    "address": "Mumbai",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "d08a1b1d-f820-422d-a92e-6a9e18b80fbd",
+    "name": "Future Tyres Pvt Ltd",
+    "address": "203,G I D C, Kalol\nPanchamahal",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "ff8322c3-187e-4756-bcfb-7b5a5fabed54",
+    "name": "YOKOHAMA INDIA PRIVATE LIMITED",
+    "address": "PLOT NO -1,,SECTOR-48, BAHADURGARH INDUSTRIAL, ESTATE,,HSIIDC,BAHADURGAEH,JHAJJAT,HARYANA,, INDIA\nHaryana",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "309b6e6b-48b5-4c5a-9375-a007e9c234ef",
+    "name": "A one Enterprises",
+    "address": "Block no 98 Navi Jethardi, Tal.Karjan\nVadodoara",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "b6955896-782e-4bdc-b263-fc1775f10199",
+    "name": "Toto India Industries Pvt Ltd",
+    "address": "Plot A G I D C Phase II Halol, Chnadrapura, Halol",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "206cbdf1-257d-4286-95a1-10a346dc94a5",
+    "name": "BALAKRISHNA INDUSTRIES LIMITED",
+    "address": "Bhuj-Bahuchraji State Highway No 42, Village-Paddhar\nBhuj-Kutch ( Gujarat)-370105",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "1a218c6f-7758-4b1d-8179-b7d382a96258",
+    "name": "ATC Tires Pvt Ltd",
+    "address": "PLOT NO D - III,23 & 23 A, DAHEJ INDUSTRIAL, ESTATE, VAGRA,BHARUCH , GUJARAT.\nGUJARAT",
+    "contact": "",
+    "gstin": "24AACCN5773A1ZR",
+    "pan": "AACCN5773A"
+  },
+  {
+    "id": "70fe1a63-6c54-4b68-9765-090d08f4a63d",
+    "name": "Gupta Power Infrastructure Ltd",
+    "address": "Cuttak -Puri Road, Opp.Bhubneswari Temple\nBhubneswar",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "f104a49d-470a-444f-9d47-39bd8b89e725",
+    "name": "BIRLA TYRES (HO) KESORAM INDUSTRIES LTD",
+    "address": "Birla Building 7th Floor,, R N Mukherji Road\nKolkatta-700001",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "acdc107e-23f6-4fdf-a191-68fa4380f27f",
+    "name": "CEAT Ltd (Nagpur)",
+    "address": "PLOT NO SZ 39 , BUTIBORI, MIDC ,, NAGPUR 441108 ,, MAHARASTRA\nMaharashtra",
+    "contact": "",
+    "gstin": "27AAACC1645G1ZZ",
+    "pan": "AAACC1645G"
+  },
+  {
+    "id": "2840d583-26ad-4025-92d2-86682c25cfce",
+    "name": "Paradise Rubber Pvt Ltd",
+    "address": "1437,G I D C, Waghodia\nVadodara",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "acdc18f3-aee1-48c3-8f04-f25e356d42f2",
+    "name": "CEAT Speciality Tyres Ltd",
+    "address": "Ambernath Plant\nMumbai",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "9f0381b2-d2bd-4109-ba70-671ce1fcfacc",
+    "name": "Maxxis Rubber India Pvt Ltd",
+    "address": "SM12 +SM 51/2 SANAND -II INDUSTRIAL ESTATE,,NR., MARINI INDIA,, BOL VILLAGE SANAND,, AHMEDABAD\nGUJARAT",
+    "contact": "",
+    "gstin": "24AAJCM7177Q1ZM",
+    "pan": "AAJCM7177Q"
+  },
+  {
+    "id": "83c9381b-88cd-4f75-a275-4ac7d4e85e51",
+    "name": "GOOD YEAR SOUTH ASEA TYRES PVT LTD",
+    "address": "H-18 M I D C WALUJ\nAURANGABAD-431136",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "4f000f36-f717-4425-af31-cc20eef811e0",
+    "name": "Cavendish Industries Ltd",
+    "address": "Village:Khedimubarkpur, Tehsil-Laksar\nHaridwar",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "1a34e2e9-38a3-402d-85e2-51b38846c04b",
+    "name": "FORBO SIEGLING MOVEMENT SYSTEM INDIA PVT LTD",
+    "address": "GAT NO:880,SANASWADI, TALUKA SHIRUR\nDIST;PUNE 412208",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "83342ffb-791d-4d21-8676-42fb6fc119da",
+    "name": "Ammeraal Beltech India Pvt Ltd",
+    "address": "No 68/85 Ambattur Vanagram Road, Ayanambakkam\nChennai-600095",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "99369a8b-ee8d-43dc-bda2-fc8b93cdf178",
+    "name": "SHING HEUNG MACHINE COMPANY",
+    "address": "CEAT LTD HALOL PLANT\nVADODARA",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "c9f9239f-a8a2-4407-8f07-777231e89856",
+    "name": "HIMILE MOULDS INDIA PVT LTD",
+    "address": "G I D C, POR RAMANGAMDI\nVADODARA",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "e3d1887f-38ad-4561-ae14-078a85e3b149",
+    "name": "Dawnsun Exim Corporation",
+    "address": "Vadodara",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "decdd194-a51c-473d-be66-13818851b342",
+    "name": "CEAT LTD (Chennai)",
+    "address": "Kannanthangal village, Post;Maduramnglam ,Sriperumbudur, Kanchipuram",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "953d337b-a22e-4b8a-8853-b3827a25a908",
+    "name": "Voltas Limited",
+    "address": "C Building Shreenath Ind Estate, Survey no 107\nDadra-396193",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "dc6bbdef-cac2-495c-9cc9-0459f7e0c4f5",
+    "name": "BIRLA TYRES LTD BALASORE",
+    "address": "BALASORE, CHANPUR\nODISHA-756056",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "3ef1044e-946c-4fbf-88a1-517186158eae",
+    "name": "YAIPLTD",
+    "address": "B1 NM JOSHI MARG, LOWER PAREL\nMUMBAI-400011",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "6019a711-32a6-4777-b503-4aaeaaf4e874",
+    "name": "MRF LTD",
+    "address": "Dahej Plant\nDist:Bharuch",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "b9289a9d-1668-4c38-926a-5abca15d2061",
+    "name": "APOLLO TYRES LTD ( SRICITY)",
+    "address": "Chinnapanduru Village, Chittor District\nAndhra pradesh",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "980e3255-aa5f-4c73-936c-98fd58dd66eb",
+    "name": "MAHASARIYA TYRES PVT LTD",
+    "address": "G I D C ,SEZ ZONE, PANOLI\nBHARUCH",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "707ba9df-e2f8-42cf-8983-9f7bcd7edea9",
+    "name": "MRF LTD-MEDAK PLANT",
+    "address": "POST BOX NO 2, NH-65,SADASIVAPET\nMEDAK-502291",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "9e20f838-e735-4cb4-bca3-9916a8ac925d",
+    "name": "APOLLO TYRES GLOBAL R&D",
+    "address": "COLLOSEIUM 2 ,7511 PT,, ENCHEDE, THE NATHERLAND",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "b83c7fc1-2ecb-40a8-aa55-6cb41983e7f6",
+    "name": "Precision Automation and Robotics India Ltd",
+    "address": "Gate no 463A 463B 464 Village:Dhangarwadi, Khandala\nSATARA",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "816c705a-985d-4df3-bec3-f8bd22879845",
+    "name": "AUTOMAG INDIA PVT LTD",
+    "address": "NKB HOUSE SURVERY NO 98 PLOT NO 14, BHUSHARI COLONY,KOTHRUD\nPUNE-4110038",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "9a25c611-8fd3-41eb-be28-4b2cc7e11fdb",
+    "name": "RALSON TYRES LIMITED",
+    "address": "PITHAMPUR, INDORE, MADHYPRADESH",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "801cdec9-0444-47f8-b75a-bed4ebaacdff",
+    "name": "J K Tyres & Industries Ltd VTP",
+    "address": "Vikrant Tire Plant, KRS Road,Metagalli\nMYSURU-570016",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "21da44a9-e7ee-4ab0-a89f-943e30b209eb",
+    "name": "SYAM TRELLEBORG TIRES LLP",
+    "address": "521 SAYKHA INDUSTRIAL ESTATE, NEAR VILLAGE JUNED, TALUKA;VAGRA\nBHARUCH",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "94ea976b-bb7c-4b5f-9b07-a0781c7cde2c",
+    "name": "PODDAR TYRES LIMITED",
+    "address": "GT ROAD,JIGIANA, LUDHIYANA, PUNJAB-141017",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "b3fbb387-9444-4184-98e4-a36369ec9a0c",
+    "name": "ATC Tires AP Private Ltd",
+    "address": "PLOT NO 7 8, ANDHRPRADESH INDUSTRIESL INFR CORP, VILLAGE:ACTUCHUTAPURAM\nVISHAKAPATNAM",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "99a499fa-390d-4eca-a2c8-51dc0c94e293",
+    "name": "MRL Tires Ltd",
+    "address": "A-1/2,Plot No.10-12,Site B, Surajpur Industrial Area, Greater Noida-201306",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "4a786e9a-f1f1-4a97-9b3d-7940978cdc75",
+    "name": "Kobelco",
+    "address": "India",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "30795400-4f63-4e56-8d9c-ff9d280e9150",
+    "name": "Plasser India Pvt Ltd",
+    "address": "Plot no 10 A Village Dethan, Taluka Karjan\nVadodara-391244",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "a27ff8ed-8302-4078-b205-aa9afb73f586",
+    "name": "IIT Delhi",
+    "address": "",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "6971cc86-e8c9-4b42-b4f6-89ad81fa4dcd",
+    "name": "Excell Rubber Pvt Ltd",
+    "address": "SY 315&316 Ameenpur Road, Bachupalli Village, Malkajigiri\nHydrabad-500090",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "0b9ec6d7-793b-4859-962a-3ced33e4b845",
+    "name": "CEAT LTD -NASHIK",
+    "address": "82 MIDC, SATPUR\nNASHIK-422007",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "ac53a410-ddb7-4e47-9e5f-4de286db8769",
+    "name": "Vishal Enterprises",
+    "address": "Thane-Maharastra",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "95b92da4-9216-46c2-a172-87d014f604e0",
+    "name": "Material Movell India Pvt Ltd",
+    "address": "A-99 Sector 63, Noida\nUttar Pradesh 201301",
+    "contact": "Mr Sumitkumar Khandelwal",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "787dd773-910c-430c-868b-80fdf50a7ffe",
+    "name": "YOKOHAMA TWS S P A",
+    "address": "VIA NAZIONALE TIBURTINA\nTIVOLI-ITALY-00019",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "45a62abe-1993-4b41-8d46-a0903f115445",
+    "name": "Lexus Machine Limited",
+    "address": "Plot no 7 Trushna Building, TGIIC Layout ,Infocity, Madhapur\nHydrabad-500081",
+    "contact": "Mr P Sankalp",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "09b606f5-b28c-44cc-b2e3-e63ac78ac433",
+    "name": "Fischer Dawnsun Tire Tech Pvt Ltd",
+    "address": "S-43 B 2 2 PILLAIPAKKAM SIPCOT IND PARK, VENGADU,SRIPERUMDURPURM\nKanchipuram-63152",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "d4958bf8-c70d-4eb7-a6bb-dd4785887a36",
+    "name": "Polyplas",
+    "address": "F4/8 Vasant Vihar, New Delhi-110057",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "e8700ed1-cd66-48b6-9b4b-ade4aabfb23f",
+    "name": "Yokohama TWZ Czech Republic",
+    "address": "tr.Tomase Bati 1740, 76501 Otrolovice\nCzechia",
+    "contact": "Mr David Novosad",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "2b971f02-c3b3-4d7b-b359-86173555aa66",
+    "name": "CEAT KELANI INTERNATION TYRES PVT LTD",
+    "address": "P O BOX 53,NUNGAMUGODA, KELANIYA\nSRILANKA",
+    "contact": "MR GAYAN PERERA",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "f394f185-2e85-4a5a-8dc4-9b9b6a203410",
+    "name": "SIEMENS LTD.",
+    "address": "OPP. MAKARPURA RAILWAY STATION, MANEJA\nVADODARA, GUJARAT",
+    "contact": "",
+    "gstin": "24AAACS0764L1ZC",
+    "pan": "AAACS0764L"
+  },
+  {
+    "id": "d975823c-3f95-4599-9f6a-28ecd3016796",
+    "name": "MPI Machines Ltd",
+    "address": "Gola Ka Mandir,, Air port Road,\nGwalior-474005",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "71e27a37-f602-435e-9f0e-402a277a6062",
+    "name": "COLLAMBIA PAKONA ENG PVT LTD",
+    "address": "333, G I D C ,MAKARPURA\nVADODARA",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "34794f46-77b7-4641-8c29-3ede4b33de20",
+    "name": "Bray Controls India Pvt Ltd",
+    "address": "14,Alindra G I D C, Savli\nDist:Vadodara",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "6c90ea9a-c193-4a95-a7a7-3c3d5f3a2a59",
+    "name": "TEMA INDIA PVT LTD",
+    "address": "G I D C, PANOLI,DIST;BHARUCH",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "90aff651-64b4-49ba-8c19-9183e1991e98",
+    "name": "RAYCHEM INNOVSTION CENTER",
+    "address": "SAFARI CROSSING, NEAR HALOL G.I.D.C,VILL. KANJARI, HALOL, PANCHMAHAL\nHALOL",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "679e5ddd-be72-428b-b8b1-64abfe53f1db",
+    "name": "KEC INERNATIONAL",
+    "address": "SAMLAYA, SAVLI\nVADODARA",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "ef886a1b-99c5-4b78-a399-388b0417eb83",
+    "name": "EIB SOLUTIONS",
+    "address": "D 82 SHAKTI PARK SOCIETY, OLD SAMA ROAD, SAMA\nVADODARA-390008",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "0e1bbe2a-46fc-4822-92a7-fc9b3e005a64",
+    "name": "R R Kabel",
+    "address": "Village:KHANDHA ROAD, TALUKA:WAGHODIA\nDIST:VADODARA",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "316af0d4-33d5-4776-a71d-a64c5b21c188",
+    "name": "PGP GLASS PVT LTD",
+    "address": "Gajera road, Village:Ucchad, Jambusar\nBharuch",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "8fe35bd4-4b20-4173-abd5-7a50e0fc42de",
+    "name": "CEAT LTD -Ambernath",
+    "address": "Additional MIDC Plot no 62, Bohonoli,Ambernath\nThane",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "d8044c30-4fed-4630-a790-bdd29066a86e",
+    "name": "Mogli India Pvt Ltd",
+    "address": "202 Tower A Mayfair Complex, Kalali\nVadodara-390012",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "327dc8bb-3a82-4820-ae88-d6cc4144cc8e",
+    "name": "ATC TIRE PVT LTD ( TN PLANT)",
+    "address": "SIPCOT-SEZ,PLOT NO A-2 SIPCOT INDUSTRIAL GROWTH, VILLAGE-GANGAIKONDAN\nTIRUNEVELI (TAMIL NADU)",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "3fa5f5ff-8ae4-4051-bfb0-82ef96013eec",
+    "name": "MAHANSARIA TYRES PVT LTD",
+    "address": "302-304 PENISULA CHAMBERS, GANPAT RAO KADAM MARG, LOWER PAREL\nMUMBAI 400013",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "2eac04c4-b0c5-4e64-9fd2-60ef53759202",
+    "name": "Reise Mitas Tire LLP",
+    "address": "521 Saykha Industrial Estate, Near Village Juned, Vagra\nBharuch 392140",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "aa548d4b-26d4-4cdf-96b1-496839dbb042",
+    "name": "THE STEELASTIC COMPANY LLC",
+    "address": "ONE VISION LANE, CUYAHOGA FALLS\nOH 44223 USA",
+    "contact": "Mr Hemant Agrawal",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "1d06d5c6-8e57-4bdc-aded-c34b461e25f7",
+    "name": "Raychem RPG Ltd",
+    "address": "Safari Crossing, Near Halol GIDC, Kanjari Panchmahal\nVadodara-389950",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "7df576e9-7767-4c3b-8673-821c014accdb",
+    "name": "DALMIA BHARAT REFRACTORIES LTD",
+    "address": "Chhanpur Khata No 497/1925, Plot no 1747/2023 Baleswar, Balasore 756056",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "4e1bc11e-0942-4e1d-a442-c8190bd92b5b",
+    "name": "Sudarshan Auto Industries Pvt Ltd ( SJR)",
+    "address": "E-18 Opp.Soktas India Ltd, Five Star MIDC Kagal\nKolhapur-41626",
+    "contact": "Mr Sandeep Kumar",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "bfcf1e64-bff1-4e3b-9687-fbf12c866291",
+    "name": "Piramal Glass Ltd,Kosamba",
+    "address": "ONGC Road, Village:Karakhadi, Kosamba\nDist: Surat",
+    "contact": "",
+    "gstin": "24AABCG0093R1ZD",
+    "pan": "AABCG0093R"
+  },
+  {
+    "id": "2507d544-b6a9-46ac-8374-7bd02bc52a69",
+    "name": "SHREE RAM SCRAP TRADERS",
+    "address": "188/10 G.I.D.C ESTATE, WAGHODIA 391760",
+    "contact": "",
+    "gstin": "",
+    "pan": "ABWPR5740B"
+  },
+  {
+    "id": "7db25724-6e6b-4fce-89d3-3a44c82dbf10",
+    "name": "Hari Shankar Singhania Elastomer Tyre Research",
+    "address": "Kankroil-313342, Dist-Rajsamand\nRajasthan",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "785d3d29-ff45-4bcb-b2a2-826c4d1494b3",
+    "name": "APOLLO TYRES LTD.-PERAMBRA",
+    "address": "Near chalakud, Dist:- Trichur\nPerembra, Kerala, KERALA",
+    "contact": "",
+    "gstin": "32AAACA6990Q1Z7",
+    "pan": "AAACA6990Q"
+  },
+  {
+    "id": "b4c43ad9-c9d0-4c4d-b153-96f55b31d077",
+    "name": "UMA STEEL CORPORATION",
+    "address": "896/B-B,G.I.D.C. ESTATE,MAKARPURA,, VADODARA,\nVADODARA - 390010",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "fabe7286-a185-48b5-820f-f3c281bdf74b",
+    "name": "Harsh Traders",
+    "address": "Nagarwada, Vadodara",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "fbc1cdd6-33b6-478b-9b6d-08e228353ad3",
+    "name": "KARAN ENTERPRISE",
+    "address": "B/42, MARUTI VIHAR,, OPP.UMIYADHAM SOCIETTY, AMBICA NAGAR,, ODHAV, AHMEDABAD",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "7454bd4e-503e-47b4-8fb5-079e1ba1d74e",
+    "name": "APOLLO TYRES LTD.-KALAMASSERY",
+    "address": "KALAMASSERY,, DIST:-ERNAKULAM-683 104, KERALA\nKERALA",
+    "contact": "",
+    "gstin": "32AAACA6990Q1Z7",
+    "pan": "AAACA6990Q"
+  },
+  {
+    "id": "d1dddc1f-ac3b-4841-a541-0bbfbf371f9a",
+    "name": "Shree Gurumaharaj Industries",
+    "address": "201, G.I.D.C., Halol,, Dist:-Panchmahal",
+    "contact": "",
+    "gstin": "",
+    "pan": "AEIPP3916Q"
+  },
+  {
+    "id": "4d6663a5-bf93-40dd-8a1b-2ae0e7a514fc",
+    "name": "INNOVATIVE TYRES & TUBES LTD.",
+    "address": "1201, GIDC,, HALOL, DIST:PANCHMAHAL",
+    "contact": "",
+    "gstin": "",
+    "pan": "AAACI1236R"
+  },
+  {
+    "id": "9eb15859-b0c0-45e6-a990-1fcf6d007070",
+    "name": "KEC International Ltd ( Cable Division )",
+    "address": "Survey No.803-805, Village-Godampura/Samlaya,, Taluka-Savli, Dist-Baroda-391520,, Gujarat, India.",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "f32a5dfc-9d57-46ae-888c-1e07b69dcba4",
+    "name": "Bridgestone India Private Ltd-PUNE.",
+    "address": "Plot No. A-43, Chakan Ind. Area, Phase-II,, Distt-Khed.\nPune., Maharashtra",
+    "contact": "",
+    "gstin": "",
+    "pan": "BPLBQ0992 F"
+  },
+  {
+    "id": "e506982b-87eb-46c2-947e-4e0aa5a151cd",
+    "name": "J.K.TYRES & INDUSTRIES LTD.-MYSORE",
+    "address": "TRUCK RADIAL PLANT II,, 437, HEBBAL INDUSTRIAL AREA,, METAGALI,MYSORE,KARNATAKA",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "84ee5b27-3b86-4b40-b363-a89b404c5c98",
+    "name": "J K Tyres & Industries ltd.- SRIPERUMBUDUR",
+    "address": "PIANT:Radial Tyre Plant\"OFF,Tambaram Road SH-110\", kolathur,sriperumbudur\"tamilnadu-602105, buyer",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "4dd7ac99-76c4-485b-9d27-b20a610d6315",
+    "name": "UNITED RUBBER PVT.LTD.",
+    "address": "R.S.NO.165,VILLAGE DU.BORIDRA,TALUKA, JHAGADIA,DIST.BHARUCHH.O.:17 JALDARSHAN, SOCIETY, G.I.D.C.,VAILL ROAD\nANKLESHWAR-393002",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "b684a87f-588e-4956-b194-18513f3a5d0e",
+    "name": "ANKITA ENTERPRISES",
+    "address": "308/2 GIDC,, MAKARPURE,VADODARA\nGUJARAT",
+    "contact": "",
+    "gstin": "24AGGPS1690E1ZF",
+    "pan": "AGGPS1690E"
+  },
+  {
+    "id": "0904a6ca-acff-4745-ad2f-38240eb14f5d",
+    "name": "MEWAT TIRE & RUBBER (P) LTD.",
+    "address": "217A,218,219,220 & 230C,,MATASYA INDUSTRIAL, AREA,,ALWAR, RAJASTHAN",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "939c16c2-bb5a-418a-a754-5abf1dedc3af",
+    "name": "J.K. TYRE & INDUSTRIES LTD-BANMORE",
+    "address": "PLANT : BANMORE-47644, C-1 INDUSTRIAL AREA,,DIST, : MORENA,, MORENA,M.P.",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "409a801d-953a-48f6-98c9-10538cfa0a69",
+    "name": "BALKRISHNA INDUSTRIES LTD",
+    "address": "BHUJ-BHACHAU ROAD,,VILLAGE:PADHDHAR , PIN, 370105, TAL : BHUJ ,, KUTCH, GUJARAT.\nGUJARAT",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "8daf7d92-1596-4e48-96b3-f996c4d815cd",
+    "name": "ATC TIRES PVT. LTD.- THIRUNELVELI",
+    "address": "PLOT NO. A2 SIPCOT SEZ INDL . GROWTH CENTER,,, VILLAGE: GANGAIKONDAN, DIST : THIRUNELVELI,,, BUYER TAMILNADU.,\nTamil Nadu",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "e5e988e0-a761-4817-a7dc-b667a76181c6",
+    "name": "BAINITE MACHINES PVT.LTD",
+    "address": "R-216/217, TTC, MIDC ,, RABALE NAVI MUMBAI-, 400701\nMaharashtra",
+    "contact": "",
+    "gstin": "",
+    "pan": "272304003681V"
+  },
+  {
+    "id": "5481d635-0e58-42cc-8b71-ea612babfbef",
+    "name": "CEAT LTD - NASIK",
+    "address": "82 , MIDC INDUSTRIAL AREA ,, SATPUR , NASIK -, 422007, MAHARASTRA\nMaharashtra",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "3171719d-b2f7-4676-8cc5-ddd1b40051ca",
+    "name": "GOODYEAR SOUTH ASIA TYRES PVT. LIMITED",
+    "address": "H-18, MIDC INDUSRIAL AREA,, WALUJ,AURANGABAD,, MAHARASTRA\nMaharashtra",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  },
+  {
+    "id": "0a217360-e9d7-4293-b19f-2ef50f5bf88a",
+    "name": "CEAT SPECIALTY TYRES LIMITED",
+    "address": "PLOT NO G2,ADDITIONAL AMBENAT MIDC,,ANAND NAGAR,,, AMBERNATH (E),, DIST : THANE MAHARASTRA\nMaharashtra",
+    "contact": "",
+    "gstin": "27AABCU5142M1Z3",
+    "pan": "AABCU5142M"
+  },
+  {
+    "id": "d6620155-c974-427d-9fcd-6dabe9e6046c",
+    "name": "PATVIN AUTO PRODUCTS PVT. LTD.",
+    "address": "639 & 650, OLD G.C.E.L. COMPOUND, GIDC, MAKARPURA\nVADODARA, GUJARAT",
+    "contact": "",
+    "gstin": "24AACCP6183G1ZF",
+    "pan": "AACCP6183G"
+  },
+  {
+    "id": "306455f2-d573-45ad-9b6a-6aaa0dde7893",
+    "name": "RICHA KOTHARI",
+    "address": "232, ATLANTIC, SARABHAI ROAD, VADI WADI\nVADODARA, Gujarat",
+    "contact": "",
+    "gstin": "",
+    "pan": ""
+  }
+]
